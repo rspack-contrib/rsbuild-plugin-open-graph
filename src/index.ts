@@ -1,14 +1,14 @@
 import type { RsbuildPlugin } from '@rsbuild/core';
 
-export type PluginExampleOptions = {
+export type PluginOpenGraphOptions = {
   foo?: string;
   bar?: boolean;
 };
 
-export const pluginExample = (
-  options: PluginExampleOptions = {},
+export const pluginOpenGraph = (
+  options: PluginOpenGraphOptions = {},
 ): RsbuildPlugin => ({
-  name: 'plugin-example',
+  name: 'rsbuild-plugin-open-graph',
 
   setup(api) {
     console.log('api', api);

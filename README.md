@@ -1,10 +1,10 @@
-# rsbuild-plugin-example
+# rsbuild-plugin-open-graph
 
-rsbuild-plugin-example is a Rsbuild plugin to do something.
+rsbuild-plugin-open-graph is a Rsbuild plugin to do something.
 
 <p>
-  <a href="https://npmjs.com/package/rsbuild-plugin-example">
-   <img src="https://img.shields.io/npm/v/rsbuild-plugin-example?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" />
+  <a href="https://npmjs.com/package/rsbuild-plugin-open-graph">
+   <img src="https://img.shields.io/npm/v/rsbuild-plugin-open-graph?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" />
   </a>
     <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square&colorA=564341&colorB=EDED91" alt="license" />
 </p>
@@ -14,17 +14,17 @@ rsbuild-plugin-example is a Rsbuild plugin to do something.
 Install:
 
 ```bash
-npm add rsbuild-plugin-example -D
+npm add rsbuild-plugin-open-graph -D
 ```
 
 Add plugin to your `rsbuild.config.ts`:
 
 ```ts
 // rsbuild.config.ts
-import { pluginExample } from 'rsbuild-plugin-example';
+import { pluginOpenGraph } from 'rsbuild-plugin-open-graph';
 
 export default {
-  plugins: [pluginExample()],
+  plugins: [pluginOpenGraph()],
 };
 ```
 
