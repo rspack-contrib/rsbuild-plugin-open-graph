@@ -17,6 +17,7 @@
   "files": [
     "dist"
   ],
+  "repository": "https://github.com/rspack-contrib/rsbuild-plugin-open-graph",
   "packageManager": "pnpm@8.15.4",
   "scripts": {
     "build": "tsup",
