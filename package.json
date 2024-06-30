@@ -1,32 +1,26 @@
 {
   "name": "rsbuild-plugin-open-graph",
   "version": "1.0.0",
+  "repository": "https://github.com/rspack-contrib/rsbuild-plugin-open-graph",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "default": "./dist/index.js"
+      "require": "./dist/index.cjs"
     }
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/rspack-contrib/rsbuild-plugin-open-graph",
-  "packageManager": "pnpm@8.15.4",
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "prepublishOnly": "npm run build"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "@rsbuild/core": "^0.5.2",
@@ -36,11 +30,16 @@
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "@rsbuild/core": "0.x"
+    "@rsbuild/core": "0.x || 1.x"
   },
   "peerDependenciesMeta": {
     "@rsbuild/core": {
       "optional": true
     }
+  },
+  "packageManager": "pnpm@8.15.4",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
