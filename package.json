@@ -20,7 +20,8 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "bump": "npx bumpp"
   },
   "devDependencies": {
     "@rsbuild/core": "^1.0.1-rc.4",
