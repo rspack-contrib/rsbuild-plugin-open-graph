@@ -24,11 +24,11 @@
     "bump": "npx bumpp"
   },
   "devDependencies": {
-    "@rsbuild/core": "^1.0.1-rc.4",
-    "@types/node": "^20.16.5",
+    "@rsbuild/core": "^1.0.9",
+    "@types/node": "^20.16.10",
     "prettier": "^3.3.3",
-    "tsup": "^8.2.4",
-    "typescript": "^5.5.4"
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2"
   },
   "peerDependencies": {
     "@rsbuild/core": "0.x || 1.x || ^1.0.1-beta.0"
