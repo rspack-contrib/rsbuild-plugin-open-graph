@@ -24,11 +24,11 @@
     "bump": "npx bumpp"
   },
   "devDependencies": {
-    "@rsbuild/core": "^1.2.3",
-    "@rslib/core": "^0.4.0",
-    "@types/node": "^22.13.0",
-    "prettier": "^3.4.2",
-    "typescript": "^5.7.3"
+    "@rsbuild/core": "^1.2.14",
+    "@rslib/core": "^0.5.2",
+    "@types/node": "^22.13.7",
+    "prettier": "^3.5.2",
+    "typescript": "^5.8.2"
   },
   "peerDependencies": {
     "@rsbuild/core": "1.x"
@@ -38,7 +38,7 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@9.15.6",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
