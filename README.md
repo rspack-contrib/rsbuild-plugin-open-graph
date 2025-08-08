@@ -100,6 +100,39 @@ See the following documents for details:
 - [The Open Graph of Twitter](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards)
 - [The Open Graph of Meta / Facebook](https://developers.facebook.com/docs/sharing/webmasters)
 
+## Multi Page Application
+
+If you are using a multi-page application, you can pass a function to the plugin options. The function will be called with the `entryName` as the argument, and you can return the options for each entry.
+
+```ts
+pluginOpenGraph(({ entryName }) => {
+  const commonOptions = {
+    type: 'website',
+    url: 'https://rsbuild.dev/',
+    image: 'https://rsbuild.dev/og-image.png',
+    description: 'The Rspack-based build tool',
+    twitter: {
+      site: '@rspack_dev',
+      card: 'summary_large_image',
+    },
+  };
+
+  if (entryName === 'index') {
+    return {
+      ...commonOptions,
+      title: 'Index',
+    };
+  }
+  if (entryName === 'about') {
+    return {
+      ...commonOptions,
+      title: 'About',
+      url: 'https://rsbuild.dev/about',
+    };
+  }
+});
+```
+
 ## License
 
 [MIT](./LICENSE).

@@ -36,14 +36,14 @@ function getMeta(name: string, value: string): Record<string, MetaObject> {
 }
 
 export const pluginOpenGraph = (
-  options: PluginOpenGraphOptions = {},
+  pluginOptions:
+    | PluginOpenGraphOptions
+    | ((context: { entryName: string }) => PluginOpenGraphOptions),
 ): RsbuildPlugin => ({
   name: 'rsbuild-plugin-open-graph',
 
   setup(api) {
     api.modifyRsbuildConfig((userConfig, { mergeRsbuildConfig }) => {
-      const meta: Record<string, MetaObject> = {};
-
       const BASIC_KEYS = [
         'url',
         'type',
@@ -56,24 +56,38 @@ export const pluginOpenGraph = (
         'description',
       ] as const;
 
-      BASIC_KEYS.forEach((key) => {
-        const val = options[key];
-        if (val !== undefined) {
-          Object.assign(meta, getMeta(`og:${key}`, val));
-        }
-      });
+      const getMetaByOptions = (options: PluginOpenGraphOptions) => {
+        const meta: Record<string, MetaObject> = {};
 
-      if (options.twitter) {
-        Object.entries(options.twitter).forEach(([key, val]) => {
-          Object.assign(meta, getMeta(`twitter:${key}`, val));
+        BASIC_KEYS.forEach((key) => {
+          const val = options[key];
+          if (val !== undefined) {
+            Object.assign(meta, getMeta(`og:${key}`, val));
+          }
         });
-      }
 
-      const extraConfig: RsbuildConfig = {
-        html: {
-          meta,
-        },
+        if (options.twitter) {
+          Object.entries(options.twitter).forEach(([key, val]) => {
+            Object.assign(meta, getMeta(`twitter:${key}`, val));
+          });
+        }
+        return meta;
       };
+
+      const extraConfig: RsbuildConfig =
+        typeof pluginOptions === 'function'
+          ? {
+              html: {
+                meta: ({ entryName }) => {
+                  return getMetaByOptions(pluginOptions({ entryName }));
+                },
+              },
+            }
+          : {
+              html: {
+                meta: getMetaByOptions(pluginOptions),
+              },
+            };
 
       return mergeRsbuildConfig(extraConfig, userConfig);
     });
